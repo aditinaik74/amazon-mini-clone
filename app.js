@@ -17,11 +17,24 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// const store = new MongoDBStore({
+//     uri: 'mongodb+srv://amazonclone_db:pyRG7rjmll2yaewT@cluster0.ci8plc3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',
+//     collection: 'sessions'
+//   });
+// const csrfProtection = csrf();
+const MongoDBStore = require('connect-mongodb-session')(session);
+
 const store = new MongoDBStore({
-    uri: 'mongodb+srv://amazonclone_db:pyRG7rjmll2yaewT@cluster0.ci8plc3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',
-    collection: 'sessions'
-  });
-const csrfProtection = csrf();
+    uri: 'mongodb+srv://amazonclone_db:pyRG7rjmll2yaewT@cluster0.ci8plc3.mongodb.net/?retryWrites=true&w=majority',
+    collection: 'sessions',
+    connectionOptions: {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        ssl: true,                 // enable SSL
+        tlsAllowInvalidCertificates: true // only for testing
+    }
+});
+
   
 
 app.set('view engine','ejs');
