@@ -1,1 +1,0 @@
-# amazon-mini-clone
