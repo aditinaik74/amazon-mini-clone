@@ -22,11 +22,6 @@ app.use(express.urlencoded({ extended: true }));
 //     collection: 'sessions'
 //   });
 const csrfProtection = csrf();
-<<<<<<< HEAD
-
-=======
-//const MongoDBStore = require('connect-mongodb-session')(session);
->>>>>>> d3528d6 (Second commit: Fixed review null errors and updated product.ejs)
 
 const store = new MongoDBStore({
     uri: 'mongodb+srv://amazonclone_db:pyRG7rjmll2yaewT@cluster0.ci8plc3.mongodb.net/?retryWrites=true&w=majority',
