@@ -153,17 +153,13 @@
     (<%= product.reviewCount %> reviews)
   </div>
 
-  <% 
-    // Filter out reviews where user is null (deleted users)
-    const validReviews = product.reviews.filter(r => r.user !== null);
-  %>
-  <% if (validReviews.length === 0) { %>
+  <% if (product.reviews.length === 0) { %>
     <p>No reviews yet.</p>
   <% } else { %>
-    <% validReviews.forEach(r => { %>
+    <% product.reviews.forEach(r => { %>
       <div class="review">
         <div class="review-header">
-          <strong><%= r.user.name %></strong> -
+          <strong><%= r.user ? r.user.name : "Unknown User" %></strong> -
           <% for (let i = 1; i <= 5; i++) { %>
             <span class="<%= i <= r.stars ? 'star filled' : 'star' %>">★</span>
           <% } %>
