@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 //     uri: 'mongodb+srv://amazonclone_db:pyRG7rjmll2yaewT@cluster0.ci8plc3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',
 //     collection: 'sessions'
 //   });
-// const csrfProtection = csrf();
+const csrfProtection = csrf();
 
 
 const store = new MongoDBStore({
