@@ -22,7 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 //     collection: 'sessions'
 //   });
 // const csrfProtection = csrf();
-const MongoDBStore = require('connect-mongodb-session')(session);
+
 
 const store = new MongoDBStore({
     uri: 'mongodb+srv://amazonclone_db:pyRG7rjmll2yaewT@cluster0.ci8plc3.mongodb.net/?retryWrites=true&w=majority',
